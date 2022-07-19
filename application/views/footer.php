@@ -2,7 +2,7 @@
   <div class="footer-inner">
     <div class="container">
       <div class="row">
-        <div class="span12"> &copy; <?= date('Y') ?> <a href="https://sourcecodester.com/">Hotel Management System - CI Version <?= CI_VERSION ?></a>. <span class="pull-right">CodeIgniter HMS - Version 2.0</span> </div>
+        <div class="span12"> &copy; <?= date('Y') ?> <a>Malang Kabupaten - CI Version <?= CI_VERSION ?></a>. <span class="pull-right">CodeIgniter 3 - Version 2.0</span> </div>
         <!-- /span12 --> 
       </div>
       <!-- /row --> 

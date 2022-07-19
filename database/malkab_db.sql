@@ -12,7 +12,7 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 --
--- Database: `hms_db`
+-- Database: `malkab_db`
 --
 
 DELIMITER $$
