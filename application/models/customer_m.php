@@ -7,10 +7,9 @@ class Customer_m extends CI_Model {
         // Call the Model constructor
         parent::__construct();
     }
-    
-    function get_customer($TCno)
+    function get_customer($id)
     {
-        $query = $this->db->get_where('customer', array('customer_TCno' => $TCno));
+        $query = $this->db->get_where('customer', array('customer_id' => $id));
         if($query) {
             return $query->result();
         } else {
@@ -25,7 +24,7 @@ class Customer_m extends CI_Model {
 
     function get_active_customers()
     {
-        $date = date('Y-m-d');
+        $date = date('d-m-Y');
         $q = $this->db->query("CALL get_customers('$date')");
 
         $data = array();

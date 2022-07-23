@@ -11,8 +11,7 @@ class user_l{
 		$data = array(
 			'uid' => $user[0]->employee_id,
 			'username' => $user[0]->employee_username,
-			'fullname' => $user[0]->employee_firstname." ".$user[0]->employee_lastname,
-			'department_name' => $user[0]->department_name
+			'fullname' => $user[0]->employee_firstname." ".$user[0]->employee_lastname
 		);
 		$CI = &get_instance();
 		$CI->session->set_userdata($data);

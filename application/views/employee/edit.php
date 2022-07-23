@@ -38,34 +38,6 @@
 					<input type="text" id="email" name="email" required value="<?=$employee->employee_email?>" placeholder="Email"/>
 				</div> <!-- /field -->
 
-				<div class="field">
-					<label for="department_id">Department:</label>
-					<select id="department_id" name="department_id">
-					<?php
-						foreach ($departments as $dept) {
-							?>
-							<option value="<?=$dept->department_id?>" <?php if($dept->department_id==$employee->department_id) { echo "selected"; } ?>><?=$dept->department_name?></option>
-							<?php
-						}
-					?>
-					</select>
-				</div> <!-- /field -->
-
-				<div class="field">
-					<label for="employee_type">Employee Type:</label>
-					<input type="text" id="type" name="type" required value="<?=$employee->employee_type?>" placeholder="Employee Type"/>
-				</div> <!-- /field -->
-
-				<div class="field">
-					<label for="employee_salary">Employee Salary:</label>
-					<input type="text" id="salary" name="salary" required value="<?=$employee->employee_salary?>" placeholder="Employee Salary"/>
-				</div> <!-- /field -->
-
-				<div class="field">
-					<label for="employee_hiring_date">Employee Hiring Date:</label>
-					<input type="date" id="hiring_date" name="hiring_date" required value="<?=$employee->employee_hiring_date?>" placeholder="Employee Hiring Date"/>
-				</div> <!-- /field -->
-
 			</div> <!-- /login-fields -->
 			
 			<div class="login-actions">

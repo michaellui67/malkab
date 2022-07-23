@@ -387,7 +387,7 @@ abstract class CI_DB_utility {
 			if ($prefs['filename'] === '')
 			{
 				$prefs['filename'] = (count($prefs['tables']) === 1 ? $prefs['tables'] : $this->db->database)
-							.date('Y-m-d_H-i', time()).'.sql';
+							.date('d-m-Y_H-i', time()).'.sql';
 			}
 			else
 			{

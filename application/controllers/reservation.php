@@ -27,7 +27,7 @@ class Reservation extends CI_Controller {
 	public function check($ref="") {
 		$post = $this->input->post();
 
-		$customer = $this->customer_m->get_customer($post['customer_TCno']);
+		$customer = $this->customer_m->get_customer($post['customer_id']);
 		$viewdata = array();
 
 		$data = array('title' => 'Add Customer - ', 'page' => 'reservation');
@@ -36,21 +36,21 @@ class Reservation extends CI_Controller {
 		if(!$customer) {
 			$viewdata['error'] = "Customer does not exist";
 		} else {
-			$rooms = $this->reservation_m->get_available_rooms($post['room_type'], $post['checkin_date'], $post['checkout_date']);
-			if(!$rooms) {
-				$viewdata['error'] = "No available rooms";
+			$facility = $this->reservation_m->get_available_facilities($post['facility_type'], $post['checkin_date'], $post['checkout_date']);
+			if(!$facility) {
+				$viewdata['error'] = "No available facility";
 			}
 		}
 		if(isset($viewdata['error'])){
-			$room_types = $this->room_m->get_room_types();
-			$viewdata['room_types'] = $room_types;
+			$facility_types = $this->facility_m->get_facility_types();
+			$viewdata['facility_types'] = $facility_types;
 			$this->load->view('reservation/add',$viewdata);
 		} else {
-			$viewdata['rooms'] = $rooms;
-			$viewdata['customer_TCno'] = $post['customer_TCno'];
+			$viewdata['facility'] = $facility;
+			$viewdata['customer_id'] = $post['customer_id'];
 			$viewdata['checkin_date'] = $post['checkin_date'];
 			$viewdata['checkout_date'] = $post['checkout_date'];
-			$viewdata['room_type'] = $post['room_type'];
+			$viewdata['facility_type'] = $post['facility_type'];
 //			echo "<pre>";
 //			var_dump($viewdata);return;echo "</pre>";
 			$this->load->view('reservation/list',$viewdata);
@@ -63,8 +63,8 @@ class Reservation extends CI_Controller {
 	{
 		$this->check_login();
 
-		$room_types = $this->room_m->get_room_types();
-		$viewdata = array('room_types' => $room_types);
+		$facility_types = $this->facility_m->get_facility_types();
+		$viewdata = array('facility_types' => $facility_types);
 		$data = array('title' => 'Reservation - ', 'page' => 'reservation');
 		$this->load->view('header', $data);
 		$this->load->view('reservation/add', $viewdata);
@@ -74,28 +74,28 @@ class Reservation extends CI_Controller {
 	{
 		$post = $this->input->post();
 
-		$customer = $this->customer_m->get_customer($post['customer_TCno']);
+		$customer = $this->customer_m->get_customer($post['customer_id']);
 		$customer = $customer[0];
 		$viewdata = array();
 		$data = array();
 		$data['customer_id'] = $customer->customer_id;
-		$data['room_id'] = $post['room_id'];
+		$data['facility_id'] = $post['facility_id'];
 		$data['checkin_date'] = $post['checkin_date'];
 		$data['checkout_date'] = $post['checkout_date'];
 		$data['employee_id'] = UID;
 
 		$date = new DateTime();
-		$date_s = $date->format('Y-m-d');
+		$date_s = $date->format('d-m-Y');
 		if($date_s>$data['checkin_date']) {
 			$viewdata['error'] = "Checkin can't be before then today";
 		} else {
 			$this->reservation_m->add_reservation($data);
-			$this->room_m->add_room_sale($data, $date_s);
+			$this->facility_m->add_facility_sale($data, $date_s);
 			$viewdata['success'] = 'Reservation successfully made';
 		}
 
-		$room_types = $this->room_m->get_room_types();
-		$viewdata['room_types'] = $room_types;
+		$facility_types = $this->facility_m->get_facility_types();
+		$viewdata['facility_types'] = $facility_types;
 
 		$data = array('title' => 'Reservation - ', 'page' => 'reservation');
 		$this->load->view('header', $data);

@@ -26,9 +26,9 @@ class Customer extends CI_Controller {
 
 	public function add($ref="")
 	{
-		// 	customer_id	customer_firstname	customer_lastname	customer_TCno	customer_city	customer_country	customer_telephone	customer_email
+		// 	customer_id	customer_firstname	customer_lastname	customer_telephone	customer_email
 		$data = $this->input->post();
-		if(isset($data["customer_TCno"]) && $data["customer_TCno"])
+		if(isset($data["customer_id"]))
 		{
 			$this->customer_m->add_customer($data);
 			redirect("/$ref");
@@ -82,8 +82,8 @@ class Customer extends CI_Controller {
 	{
 		$this->check_login();
 		
-		$room_types = $this->room_m->getRoomTypes();
-		$viewdata = array('room_types' => $room_types);
+		$facility_types = $this->facility_m->getfacilityTypes();
+		$viewdata = array('facility_types' => $facility_types);
 		$data = array('title' => 'Reservation - ', 'page' => 'reservation');
 		$this->load->view('header', $data);
 		$this->load->view('reservation/add', $viewdata);

@@ -39,8 +39,8 @@
 */
 
 $route['default_controller'] = "welcome";
-$route['room-type'] = "room_type";
-$route['room-type/(:any)'] = "room_type/$1";
+$route['facility-type'] = "facility_type";
+$route['facility-type/(:any)'] = "facility_type/$1";
 $route['404_override'] = '';
 
 

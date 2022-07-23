@@ -35,20 +35,13 @@ class Employee extends CI_Controller {
 			$lastname = $this->input->post("lastname");
 			$telephone = $this->input->post("telephone");
 			$email = $this->input->post("email");
-			$department_id = $this->input->post("department_id");
-			$type = $this->input->post("type");
-			$salary = $this->input->post("salary");
-			$hiring_date = $this->input->post("hiring_date");
 			
-			$this->employee_m->addEmployee($username, $password, $firstname, $lastname, $telephone, $email, $department_id, $type, $salary, $hiring_date);
+			$this->employee_m->addEmployee($username, $password, $firstname, $lastname, $telephone, $email);
 			redirect("/employee");
 		}
 
 		$data = array('title' => 'Add Employee - ', 'page' => 'employee');
 		$this->load->view('header', $data);
-		$departments = $this->employee_m->getDepartments();
-		$viewdata = array('departments' => $departments);
-		$this->load->view('employee/add',$viewdata);
 		$this->load->view('footer');
 	}
 
@@ -68,24 +61,15 @@ class Employee extends CI_Controller {
 			$lastname = $this->input->post("lastname");
 			$telephone = $this->input->post("telephone");
 			$email = $this->input->post("email");
-			$department_id = $this->input->post("department_id");
-			$type = $this->input->post("type");
-			$salary = $this->input->post("salary");
-			$hiring_date = $this->input->post("hiring_date");
 			
-			$this->employee_m->editEmployee($employee_id, $username, $password, $firstname, $lastname, $telephone, $email, $department_id, $type, $salary, $hiring_date);
+			$this->employee_m->editEmployee($employee_id, $username, $password, $firstname, $lastname, $telephone, $email);
 			redirect("/employee");
 		}
 		
 		$data = array('title' => 'Edit Employee - ', 'page' => 'employee');
 		$this->load->view('header', $data);
 
-		$departments = $this->employee_m->getDepartments();
 		$employee = $this->employee_m->getEmployee($employee_id);
-		
-		$viewdata = array('departments' => $departments, 'employee'  => $employee[0]);
-		$this->load->view('employee/edit',$viewdata);
-
 		$this->load->view('footer');
 	}
 

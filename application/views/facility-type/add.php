@@ -2,41 +2,36 @@
 	
 	<div class="content clearfix">
 		
-		<form action="<?= base_url() ?>room/add" method="post">
+		<form action="<?= base_url() ?>facility-type/add" method="post">
 		
-			<h1>Add Rooms</h1>		
+			<h1>Add facility Type</h1>		
 <?php if(isset($error)) {?>
 			<div class="alert alert-danger">
               <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>Error!</strong> <?=$error?>
             </div>
 <?php } ?>
-
 			<div class="add-fields">
 
 				<div class="field">
-					<label for="room_range">Room Type:</label>
-					<select id="room_type" name="room_type">
-					<?php
-						foreach ($room_types as $k=>$rt) {
-							?>
-							<option value="<?=$rt->room_type?>" <?php if($k==0) { echo "selected"; } ?>><?=$rt->room_type?></option>
-							<?php
-						}
-					?>
-					</select>
+					<label for="facility_type">facility Type:</label>
+					<input type="text" id="type" name="type" required value="" placeholder="facility Type"/>
 				</div> <!-- /field -->
 				
 				<div class="field">
-					<label for="min_id">ID range start:</label>
-					<input type="number" min="1" id="min_id" name="min_id" required value="" placeholder="-"/>
-					<i icon="icon-dollar"></i>
+					<label for="facility_price">Price:</label>
+					<input type="number" min="1" id="price" name="price" required value="" placeholder="Price"/>
 				</div> <!-- /field -->
 
 				<div class="field">
-					<label for="max_id">ID range end:</label>
-					<input type="number" min="1" id="max_id" name="max_id" value="" placeholder="-"/>
+					<label for="facility_details">Details:</label>
+					<input type="text" id="details" name="details" value="" placeholder="Details of facility"/>
 				</div> <!-- /field -->
+
+				<!--div class="field">
+					<label for="facility_quantity">Quantity:</label>
+					<input type="number" min="1" id="quantity" name="quantity" value="" placeholder="Quantity"/>
+				</div--> <!-- /field -->
 
 			</div> <!-- /login-fields -->
 			
@@ -45,6 +40,8 @@
 				<button class="button btn btn-success btn-large">Add</button>
 				
 			</div> <!-- .actions -->
+			
+			
 			
 		</form>
 		

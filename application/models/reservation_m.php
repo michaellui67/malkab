@@ -8,9 +8,9 @@ class Reservation_m extends CI_Model {
         parent::__construct();
     }
     
-    function get_available_rooms($room_type, $checkin_date, $checkout_date)
+    function get_available_facilities($facility_type, $checkin_date, $checkout_date)
     {
-        $query = $this->db->query("CALL get_available_rooms('$room_type','$checkin_date','$checkout_date')");
+        $query = $this->db->query("CALL get_available_facilities('$facility_type','$checkin_date','$checkout_date')");
         
         $this->db->reconnect();
         $data = array();

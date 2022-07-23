@@ -10,8 +10,6 @@
 				  <tr>
 				    <th> Fullname </th>
 				    <th> Username </th>
-				    <th> Department </th>
-				    <th> Job </th>
 				    <th> Email </th>
 				    <th class="td-actions"> Actions </th>
 				  </tr>
@@ -25,8 +23,6 @@
 				  <tr>
 				    <td> <?=$emp->employee_firstname ." ".$emp->employee_lastname?> </td>
 				    <td> <?=$emp->employee_username ?> </td>
-				    <td> <?=$emp->department_name ?> </td>
-				    <td> <?=$emp->employee_type ?> </td>
 				    <td> <?=$emp->employee_email ?> </td>
 				    <td class="td-actions"><a href="<?= base_url() ?>employee/edit/<?=$emp->employee_id?>" class="btn btn-small btn-primary"><i class="btn-icon-only icon-edit"> </i></a><a href="<?= base_url() ?>employee/delete/<?=$emp->employee_id?>" onclick="return confirm('Are you sure ?')" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td>
 				  </tr>

@@ -16,13 +16,13 @@
 				</div--> <!-- /field -->
 
 				<div class="field">
-					<label for="customer_TCno">Customer TC no:</label>
-					<input type="text" id="customer_TCno" name="customer_TCno" required readonly value="<?=$customer_TCno?>"/>
+					<label for="customer_id">Customer TC no:</label>
+					<input type="text" id="customer_id" name="customer_id" required readonly value="<?=$customer_id?>"/>
 				</div> <!-- /field -->
 
 				<div class="field">
-					<label for="room_type">Room Type:</label>
-					<input type="text" id="room_type" name="room_type" required readonly value="<?=$room_type?>"/>
+					<label for="facility_type">facility Type:</label>
+					<input type="text" id="facility_type" name="facility_type" required readonly value="<?=$facility_type?>"/>
 				 </select>
 				</div> <!-- /field -->
 
@@ -39,21 +39,21 @@
 				<div class="row">
 					<div class="span12">
 		<?php
-			$size = count($rooms);
+			$size = count($facilities);
 			$cols = ceil(sqrt($size));
 			$rows = ceil($size/$cols);
 		?>
 					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
-								<th colspan="<?=$cols?>">Avalilable Rooms</th>
+								<th colspan="<?=$cols?>">Avaliable facilities</th>
 							</tr>
 						</thead>
 						<tbody>
 						<?php for ($t=0, $i=0; $t<$rows; ++$t) { ?>
 							<tr>
 								<?php for($j=0; $j<$cols && $i<$size; ++$i, ++$j) { ?>
-								<td class="td-actions"><button name="room_id" value="<?=$rooms[$i]->room_id?>" onclick="return confirm('Are you sure ?')" class="btn btn-small btn-primary"><?=$rooms[$i]->room_id?><br><i class="btn-icon-only icon-edit"> </i></button></td>
+								<td class="td-actions"><button name="facility_id" value="<?=$facilities[$i]->facility_id?>" onclick="return confirm('Are you sure ?')" class="btn btn-small btn-primary"><?=$facilities[$i]->facility_id?><br><i class="btn-icon-only icon-edit"> </i></button></td>
 							<?php } ?>
 							</tr>
 						<?php } ?>

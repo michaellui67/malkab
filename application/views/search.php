@@ -29,7 +29,6 @@
 				?>
 				  <tr>
 				    <td> <?=$cust->customer_id?> </td>
-				    <td> <?=$cust->customer_TCno?> </td>
 				    <td> <?=$cust->customer_firstname." ".$cust->customer_lastname?> </td>
 				    <!-- <td class="td-actions"><a href="<?= base_url() ?>customer/edit/<?=$cust->customer_id?>" class="btn btn-small btn-primary"><i class="btn-icon-only icon-edit"> </i></a><a href="<?= base_url() ?>departments/delete/<?=$cust->customer_id?>" onclick="return confirm('Are you sure ?')" class="btn btn-danger btn-small"><i class="btn-icon-only icon-remove"> </i></a></td> -->
 				  </tr>

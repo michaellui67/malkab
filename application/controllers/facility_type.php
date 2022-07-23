@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Room_type extends CI_Controller {
+class facility_type extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,69 +29,67 @@ class Room_type extends CI_Controller {
 		
 		$viewdata = array();
 
-		if($this->input->post("type") && $this->input->post("price") /*&& $this->input->post("quantity")*/)
+		if($this->input->post("type") && $this->input->post("price"))
 		{
 
 			$type = $this->input->post("type");
 			$price = $this->input->post("price");
 			$details = $this->input->post("details");
-			$quantity = $this->input->post("quantity");
 
-			if(count($this->room_m->getRoomType($type))==0) {
-				$this->room_m->addRoomType($type, $price, $details, $quantity);
-				redirect("/room-type");
+			if(count($this->facility_m->getfacilityType($type))==0) {
+				$this->facility_m->addfacilityType($type, $price, $details);
+				redirect("/facility-type");
 			}
 			else {
-				$viewdata['error'] = "Room type alread exists";
+				$viewdata['error'] = "facility type alread exists";
 			}
 		}
 
-		$data = array('title' => 'Add Room Type - ', 'page' => 'room_type');
+		$data = array('title' => 'Add facility Type - ', 'page' => 'facility_type');
 		$this->load->view('header', $data);
-		$this->load->view('room-type/add', $viewdata);
+		$this->load->view('facility-type/add', $viewdata);
 		$this->load->view('footer');
 	}
 
-	function delete($room_type)
+	function delete($facility_type)
 	{
-		$this->room_m->deleteRoomType($room_type);
-		redirect("/room-type");
+		$this->facility_m->deletefacilityType($facility_type);
+		redirect("/facility-type");
 	}
 
-	public function edit($room_type)
+	public function edit($facility_type)
 	{
-		if($this->input->post("type") && $this->input->post("price") /*&& $this->input->post("quantity")*/)
+		if($this->input->post("type") && $this->input->post("price"))
 		{
 
 			$type = $this->input->post("type");
 			$price = $this->input->post("price");
 			$details = $this->input->post("details");
-			$quantity = $this->input->post("quantity");
 
-			$this->room_m->editRoomType($type, $price, $details, $quantity);
-			redirect("/room-type");
+			$this->facility_m->editfacilityType($type, $price, $details);
+			redirect("/facility-type");
 		}
 		
-		$data = array('title' => 'Edit Room Type - ', 'page' => 'room_type');
+		$data = array('title' => 'Edit facility Type - ', 'page' => 'facility_type');
 		$this->load->view('header', $data);
 
-		$room_type = $this->room_m->getRoomType($room_type);
+		$facility_type = $this->facility_m->getfacilityType($facility_type);
 		
-		$viewdata = array('room_type'  => $room_type[0]);
-		$this->load->view('room-type/edit',$viewdata);
+		$viewdata = array('facility_type'  => $facility_type[0]);
+		$this->load->view('facility-type/edit',$viewdata);
 
 		$this->load->view('footer');
 	}
 
 	public function index()
 	{
-		$room_types = $this->room_m->get_room_types();
+		$facility_types = $this->facility_m->get_facility_types();
 
-		$viewdata = array('room_types' => $room_types);
+		$viewdata = array('facility_types' => $facility_types);
 
-		$data = array('title' => 'Rooms - ', 'page' => 'room_type');
+		$data = array('title' => 'facilities - ', 'page' => 'facility_type');
 		$this->load->view('header', $data);
-		$this->load->view('room-type/list',$viewdata);
+		$this->load->view('facility-type/list',$viewdata);
 		$this->load->view('footer');
 	}
 }

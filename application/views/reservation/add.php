@@ -10,7 +10,7 @@
             
             <form action="<?= base_url() ?>reservation/check" method="post">
             
-              <h1>Search for Rooms</h1>    
+              <h1>Search for facilities</h1>    
 <?php if(isset($error)) {?>
       <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -26,17 +26,17 @@
       <div class="add-fields">
 
         <div class="field">
-          <label for="customer_TCno">Customer TC no:</label>
-          <input type="text" id="customer_TCno" name="customer_TCno" required value="" placeholder="Customer ID no"/>
+          <label for="customer_id">Customer ID:</label>
+          <input type="text" id="customer_id" name="customer_id" required value="" placeholder="Customer ID no"/>
         </div> <!-- /field -->
 
         <div class="field">
-          <label for="room_type">Room Type:</label>
-          <select id="room_type" name="room_type">
+          <label for="facility_type">facility Type:</label>
+          <select id="facility_type" name="facility_type">
           <?php
-            foreach ($room_types as $k=>$rt) {
+            foreach ($facility_types as $k=>$rt) {
               ?>
-              <option value="<?=$rt->room_type?>" <?php if($k==0) { echo "selected"; } ?>><?=$rt->room_type?></option>
+              <option value="<?=$rt->facility_type?>" <?php if($k==0) { echo "selected"; } ?>><?=$rt->facility_type?></option>
               <?php
             }
           ?>
@@ -54,7 +54,7 @@
         </div> <!-- /field -->
 
         <!--div class="field">
-          <label for="room_quantity">Quantity:</label>
+          <label for="facility_quantity">Quantity:</label>
           <input type="number" min="1" id="quantity" name="quantity" value="" placeholder="Quantity"/>
         </div--> <!-- /field -->
 
