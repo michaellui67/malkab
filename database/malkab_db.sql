@@ -214,7 +214,7 @@ ALTER TABLE `customer`
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`employee_id`),
   ADD UNIQUE KEY `username` (`employee_username`),
-  ADD UNIQUE KEY `email` (`employee_email`)
+  ADD UNIQUE KEY `email` (`employee_email`),
   ADD KEY `login` (`employee_username`,`employee_password`);
 
 --

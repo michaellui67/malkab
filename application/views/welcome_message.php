@@ -78,7 +78,7 @@
         <div class="span6">
           <div class="widget" id="target-2">
             <div class="widget-header"> <i class="icon-group"></i>
-              <h3> Hotel's Next Week Customers</h3>
+              <h3> Stadium's Next Week Customers</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">

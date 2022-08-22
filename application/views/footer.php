@@ -155,14 +155,14 @@ if($page == "reservation" ) {
         attachTo: '#target-2'
         , anchor: 'top-left'
         , title: 'Next Week Reservations Chart'
-        , text: 'You can see next week\'s hotel situation. It shows how many customers will be hosted next week.'
+        , text: 'You can see next week\'s stadium situation. It shows how many customers will be hosted next week.'
       });
 
       guidely.add ({
         attachTo: '#target-3'
         , anchor: 'top-left'
         , title: 'Most Favorite Customer'
-        , text: 'Here, you can see the customer who spend most money to our hotel. We used MAX, SUM, GROUP BY functions on our database.'
+        , text: 'Here, you can see the customer who spend most money to our stadium. We used MAX, SUM, GROUP BY functions on our database.'
       });
       
       

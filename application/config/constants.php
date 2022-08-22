@@ -2,7 +2,7 @@
 
 
 
-define('HOTEL_NAME', "ABC Hotel");
+define('NAME', "RESERVASI STADION KABUPATEN MALANG");
 
 
 /*

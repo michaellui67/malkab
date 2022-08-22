@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?= !empty($title) ? $title:""?><?= HOTEL_NAME ?> | CI - HMS</title>
+    <title><?= !empty($title) ? $title:""?><?= NAME ?> | CI - HMS</title>
     <meta charset="utf8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,7 +25,7 @@
   <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container"> <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?= base_url() ?>"><i class="icon-building"></i> <?=HOTEL_NAME?></a>
+                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span> </a><a class="brand" href="<?= base_url() ?>"><i class="icon-building"></i> <?=NAME?></a>
       <?php
         if(UID){?>
           <div class="nav-collapse">
