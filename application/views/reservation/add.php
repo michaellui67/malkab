@@ -31,7 +31,7 @@
         </div> <!-- /field -->
 
         <div class="field">
-          <label for="facility_type">facility Type:</label>
+          <label for="facility_type">Facility Type:</label>
           <select id="facility_type" name="facility_type">
           <?php
             foreach ($facility_types as $k=>$rt) {
