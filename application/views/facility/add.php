@@ -4,18 +4,18 @@
 		
 		<form action="<?= base_url() ?>facility/add" method="post">
 		
-			<h1>Add facilities</h1>		
-<?php if(isset($error)) {?>
+			<h1>Add Facilities</h1>
+			<?php if(isset($error)) {?>
 			<div class="alert alert-danger">
               <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>Error!</strong> <?=$error?>
             </div>
-<?php } ?>
+			<?php } ?>
 
 			<div class="add-fields">
 
 				<div class="field">
-					<label for="facility_range">facility Type:</label>
+					<label for="facility_range">Facility Type:</label>
 					<select id="facility_type" name="facility_type">
 					<?php
 						foreach ($facility_types as $k=>$rt) {

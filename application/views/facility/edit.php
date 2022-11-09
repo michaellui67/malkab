@@ -15,7 +15,7 @@
 			<div class="add-fields">
 
 				<div class="field">
-					<label for="facility_range">facility Type:</label>
+					<label for="facility_range">Facility Type:</label>
 					<select id="facility_type" name="facility_type">
 					<?php
 						foreach ($facility_types as $rt) {
